@@ -133,16 +133,12 @@ class CRM
   end
 
   def delete_contact
-    contact = nil
-
-    while contact == nil
-      puts "Please provide the ID of the contact you wish to delete: "
-      contact_id = gets.chomp.to_i
-      @rolodex.delete_contact(contact_id)
-        if returned_contact != nil
-          return
-        end
-    end
+    puts "Please provide the ID of the contact you wish to delete: "
+    input_id = gets.chomp.to_i
+    returned_contact = @rolodex.find_to_delete(input_id)
+      if returned_contact != nil
+        @rolodex.delete_contact(returned_contact)
+      end
   end
 
 #   def display_info(contact)

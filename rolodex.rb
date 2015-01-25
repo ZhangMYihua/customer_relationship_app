@@ -24,13 +24,21 @@ class Rolodex
     @contacts
   end
 
-  def delete_contact(contact_id)
-    @contacts.find do |contact|
+  def find_to_delete(contact_id)
+    @contacts.each do |contact|
       if contact_id == contact.id
-        @contacts.delete(contact)
+        return contact
       end
     end
     return nil
+  end
+
+  def delete_contact(contact_to_delete)
+    @contacts.find do |contact|
+      if contact_to_delete == contact
+        @contacts.delete(contact)
+      end
+    end
   end
 
 
