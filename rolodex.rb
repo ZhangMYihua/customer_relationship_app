@@ -14,9 +14,11 @@ class Rolodex
 	end
 
   def find_contact(contact_id)
-    @contacts.find do |contact|
-      contact.id == contact_id
+    @contacts.each do |contact|
+      if contact.id == contact_id
+        return contact
       end
+    end
     return nil
   end
 

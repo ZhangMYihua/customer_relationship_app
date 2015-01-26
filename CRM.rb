@@ -144,10 +144,10 @@ class CRM
   def modify_contact
     puts "Please provide the ID of the contact you wish to modify"
     input_id = gets.chomp.to_i
-    puts rolodex.find_contact(input_id)
+    puts @rolodex.find_contact(input_id)
     puts "Confirm correct contact to modify: 'Y' / 'N' "
     confirmation = gets.chomp.upcase
-    if confirmation == "Y" then rolodex.modify_contact(input_id)
+    if confirmation == "Y" then @rolodex.modify_contact(input_id)
     end
   end
 
