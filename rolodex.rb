@@ -50,44 +50,43 @@ class Rolodex
     puts "[5] Return to main menu"
     option = gets.chomp.to_i
       case option
-        when 1 then modify_first_name
-        when 2 then modify_last_name
-        when 3 then modify_email
-        when 4 then modify_note 
+        when 1 then modify_first_name(contact_id)
+        when 2 then modify_last_name(contact_id)
+        when 3 then modify_email(contact_id)
+        when 4 then modify_note(contact_id)
         when 5
           return
         else
           puts "Incorrect option. Try again."
       end
-
-  end
-
-  def modify_contact_menu
-    puts "Choose which attribute to modify"
-
-    while true
-      print_modify_menu
-      user_input = gets.chomp.to_i
-      choose_modify_option(user_input)
-      return if input == 5
     end
 
+  def modify_first_name(id)
+    puts "Type new first name:"
+    input = gets.chomp
+    contact = @contacts.find(id).first
+    contact.first_name = input
   end
 
-  def modify_first_name
-
+  def modify_last_name(id)
+    puts "Type new last name:"
+    input = gets.chomp
+    contact = @contacts.find(id).first
+    contact.last_name = input
   end
 
-  def modify_last_name
-  
+  def modify_email(id)
+    puts "Type new email:"
+    input = gets.chomp
+    contact = @contacts.find(id).first
+    contact.email = input
   end
 
-  def modify_email
-
-  end
-
-  def modify_note
-
+  def modify_note(id)
+    puts "Type new note:"
+    input = gets.chomp
+    contact = @contacts.find(id).first
+    contact.note = input
   end
 
 end
